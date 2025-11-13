@@ -121,6 +121,8 @@ export function ProjectsSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
+              className="relative"
+              style={{ zIndex: hoveredIndex === index ? 10 : 1 }}
             >
               <motion.div
                 whileHover={{ y: -12 }}

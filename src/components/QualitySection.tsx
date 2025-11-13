@@ -23,8 +23,8 @@ export function QualitySection() {
       <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* Image with Enhanced Animations */}
         <motion.div
-          initial={{ opacity: 0, x: -50, rotateY: -15 }}
-          animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+          initial={{ opacity: 0, x: -50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="order-2 md:order-1 relative"
         >
@@ -41,40 +41,48 @@ export function QualitySection() {
             initial={{ opacity: 0, scale: 0 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="absolute -top-3 -left-3 w-12 h-12 border-t-4 border-l-4 border-red-500 rounded-tl-2xl"
+            className="absolute -top-3 -left-3 w-12 h-12 border-t-4 border-l-4 border-red-500 rounded-tl-2xl z-10"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="absolute -bottom-3 -right-3 w-12 h-12 border-b-4 border-r-4 border-orange-500 rounded-br-2xl"
+            className="absolute -bottom-3 -right-3 w-12 h-12 border-b-4 border-r-4 border-orange-500 rounded-br-2xl z-10"
           />
 
           {/* Main Image Container */}
           <motion.div
-            whileHover={{ scale: 1.02, rotateY: 5 }}
-            transition={{ duration: 0.3 }}
-            className="rounded-3xl overflow-hidden shadow-2xl relative"
-            style={{ transformStyle: 'preserve-3d' }}
+            whileHover={{ y: -8 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            className="rounded-3xl overflow-hidden shadow-2xl relative group"
           >
             <motion.div
               initial={{ scale: 1.2 }}
               animate={isInView ? { scale: 1 } : {}}
               transition={{ duration: 1, ease: "easeOut" }}
+              className="overflow-hidden"
             >
-              <img
+              <motion.img
                 src={imgRectangle4114}
                 alt="Quality"
                 className="w-full h-auto"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               />
             </motion.div>
             
             {/* Shine Effect on Hover */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none"
               initial={{ x: '-100%' }}
+              animate={{ x: '-100%' }}
               whileHover={{ x: '100%' }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+            />
+
+            {/* Gradient Overlay on Hover */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             />
           </motion.div>
 
