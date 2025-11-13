@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Globe } from "lucide-react";
 
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
