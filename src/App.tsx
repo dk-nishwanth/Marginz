@@ -44,13 +44,13 @@ export default function App() {
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            {/* LOGO - Simple Text */}
+            {/* LOGO - Black for visibility */}
             <motion.div 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-0 py-2.5 cursor-pointer"
             >
-              <span className="text-gray-900 text-lg font-bold tracking-wide">Marginz</span>
+              <span className="text-black text-xl font-black tracking-wide">MARGINZ</span>
             </motion.div>
 
             {/* CENTER NAVIGATION */}
@@ -62,19 +62,19 @@ export default function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index, duration: 0.5 }}
                   whileHover={{ y: -2 }}
-                  className="relative text-[15px] text-gray-700 hover:text-black font-normal transition-colors duration-300"
+                  className="relative text-[15px] text-gray-700 hover:text-black font-medium transition-colors duration-300"
                 >
                   {item}
                 </motion.button>
               ))}
             </div>
 
-            {/* RIGHT SIDE - SUBSCRIBE */}
+            {/* RIGHT SIDE - SUBSCRIBE - Black text */}
             <div className="hidden md:flex items-center gap-4">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-4 py-1.5 bg-blue-500 hover:bg-blue-600 text-white text-[14px] font-medium rounded-md transition-colors duration-300 border border-blue-500"
+                className="px-6 py-2.5 bg-white text-black text-[15px] font-bold rounded-full border-2 border-black hover:bg-gray-100 transition-all duration-300 shadow-lg"
               >
                 Subscribe
               </motion.button>
@@ -105,7 +105,7 @@ export default function App() {
                 <motion.button
                   key={item}
                   whileHover={{ x: 5 }}
-                  className="block w-full text-left py-3 px-4 text-[15px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg font-medium transition-all duration-200"
+                  className="block w-full text-left py-3 px-4 text-[15px] text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg font-medium transition-all duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item}

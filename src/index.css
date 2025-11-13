@@ -1801,3 +1801,82 @@ html {
 .animate-shimmer {
   animation: shimmer 2s infinite;
 }
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+
+/* Particle animation */
+@keyframes particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(100px, -100px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.animate-particle {
+  animation: particle 20s linear infinite;
+}
+
+/* Glowing pulse animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+    box-shadow: 0 0 10px currentColor;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 30px currentColor, 0 0 60px currentColor;
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Line drawing animation */
+@keyframes draw-line {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+.animate-draw-line {
+  animation: draw-line 15s ease-in-out infinite;
+}

@@ -59,7 +59,7 @@ export function ProjectsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-black relative overflow-hidden">
+    <section ref={ref} className="py-16 px-6 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
         animate={{ 
@@ -89,7 +89,7 @@ export function ProjectsSection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 mb-2 font-medium text-sm"
+            className="text-black mb-2 font-medium text-sm"
           >
             Our Success Stories
           </motion.p>
@@ -97,8 +97,7 @@ export function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="text-white mb-6 text-3xl lg:text-4xl xl:text-5xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
-            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)' }}
+            className="text-black mb-6 text-3xl lg:text-4xl xl:text-5xl font-bold"
           >
             Turning Challenges Into Opportunities
           </motion.h2>
@@ -106,7 +105,7 @@ export function ProjectsSection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="text-gray-400 max-w-4xl mx-auto"
+            className="text-black max-w-4xl mx-auto"
           >
             We partner with businesses to solve complex problems, harnessing technology to drive innovation, efficiency, and long-term success.
           </motion.p>

@@ -52,7 +52,7 @@ export function CreativeCardsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
+    <section ref={ref} className="py-16 px-6 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-10">
         <motion.div
@@ -75,10 +75,10 @@ export function CreativeCardsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-white mb-6 text-3xl lg:text-4xl xl:text-5xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)' }}>
+          <h2 className="text-black mb-6 text-3xl lg:text-4xl xl:text-5xl font-bold">
             Why Choose MARGINS
           </h2>
-          <p className="text-gray-200 max-w-3xl mx-auto text-lg">
+          <p className="text-black max-w-3xl mx-auto text-lg">
             We combine technical excellence with creative innovation to deliver solutions that exceed expectations
           </p>
         </motion.div>
@@ -128,7 +128,7 @@ export function CreativeCardsSection() {
                       </h4>
 
                       {/* Description */}
-                      <p className="text-gray-100 leading-relaxed drop-shadow-md font-medium">
+                      <p className="text-white leading-relaxed drop-shadow-md font-medium">
                         {card.description}
                       </p>
 

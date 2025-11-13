@@ -64,88 +64,161 @@ const NavBar = () => {
   );
 };
 
-// --- Hero Section Component (Updated from original) ---
+// --- Hero Section - Microsoft AI Inspired ---
 export const HeroSection = () => {
-  // Modern tech-focused background image - circuit boards, data, digital technology
-  const heroImageUrl = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80";
-
   return (
-    <section className="relative w-full px-4 md:px-8 lg:px-16 pt-40 pb-16 bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900">
-      <div className="mt-0">
-        {/* Modern Glass-morphism Card Container */}
-        <div className="relative w-full h-[75vh] min-h-[600px] overflow-hidden rounded-[2rem] shadow-[0_20px_80px_rgba(0,0,0,0.5)] transition-all duration-700 ease-in-out transform hover:scale-[1.01] border border-white/10">
-          {/* Background Image with overlay */}
-          <img
-            src={heroImageUrl}
-            alt="Digital technology and innovation"
-            className="w-full h-full object-cover object-center scale-105"
-            onError={(e) => { 
-              const target = e.target as HTMLImageElement;
-              target.onerror = null; 
-              target.src = "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80";
+    <section className="relative w-full h-screen flex items-start justify-center overflow-hidden bg-white pt-32">
+      {/* Lighter background for black text visibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-blue-50 to-purple-50">
+        <div className="absolute inset-0 opacity-60">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-300/40 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-300/40 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '10s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-300/30 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '12s' }}></div>
+        </div>
+      </div>
+
+      {/* Grid pattern overlay - More visible */}
+      <div className="absolute inset-0 opacity-[0.08]">
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)',
+            backgroundSize: '100px 100px'
+          }}
+        ></div>
+      </div>
+
+      {/* Animated particles - Microsoft AI style */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating particles - More visible */}
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full animate-particle"
+            style={{
+              width: `${2 + Math.random() * 4}px`,
+              height: `${2 + Math.random() * 4}px`,
+              backgroundColor: i % 3 === 0 ? 'rgba(20, 184, 166, 0.6)' : i % 3 === 1 ? 'rgba(59, 130, 246, 0.6)' : 'rgba(139, 92, 246, 0.6)',
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${10 + Math.random() * 8}s`,
+              boxShadow: '0 0 10px currentColor'
             }}
+          ></div>
+        ))}
+
+        {/* Flowing lines - Highly visible */}
+        <svg className="absolute inset-0 w-full h-full opacity-70" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#14b8a6" stopOpacity="0" />
+              <stop offset="50%" stopColor="#14b8a6" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="lineGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0" />
+              <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#14b8a6" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          
+          {/* Animated flowing paths - Thicker and more visible */}
+          <path
+            d="M 0 300 Q 400 100 800 300 T 1600 300"
+            stroke="url(#lineGradient1)"
+            strokeWidth="3"
+            fill="none"
+            className="animate-draw-line"
           />
-          
-          {/* Dark gradient overlay for maximum text visibility */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-blue-900/90 to-slate-900/95" />
-          
-          {/* Animated floating particles effect */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-teal-400 rounded-full animate-ping" style={{ animationDuration: '3s' }}></div>
-            <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-400 rounded-full animate-pulse" style={{ animationDuration: '4s' }}></div>
-            <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-purple-400 rounded-full animate-ping" style={{ animationDuration: '5s' }}></div>
-          </div>
+          <path
+            d="M 1600 200 Q 1200 400 800 200 T 0 200"
+            stroke="url(#lineGradient2)"
+            strokeWidth="3"
+            fill="none"
+            className="animate-draw-line"
+            style={{ animationDelay: '2s' }}
+          />
+          <path
+            d="M 0 600 Q 400 400 800 600 T 1600 600"
+            stroke="url(#lineGradient1)"
+            strokeWidth="2.5"
+            fill="none"
+            className="animate-draw-line"
+            style={{ animationDelay: '4s' }}
+          />
+          <path
+            d="M 200 100 Q 600 300 1000 100 T 1800 100"
+            stroke="url(#lineGradient2)"
+            strokeWidth="2"
+            fill="none"
+            className="animate-draw-line"
+            style={{ animationDelay: '6s' }}
+          />
+        </svg>
 
-          {/* Content CENTERED with animations */}
-          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center p-8 md:p-12 lg:p-20">
-            <div className="text-center max-w-7xl animate-fade-in">
-              {/* Brand Badge with slide-in animation */}
-              <div className="inline-flex items-center gap-3 mb-12 px-12 py-5 bg-black/60 backdrop-blur-xl rounded-full border-2 border-teal-400 shadow-[0_0_60px_rgba(20,184,166,0.6)] animate-slide-down">
-                <span className="text-teal-300 text-3xl md:text-4xl font-bold tracking-widest">✦ MARGINZ ✦</span>
-              </div>
+        {/* Glowing dots along paths - Larger and brighter */}
+        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-teal-400 rounded-full animate-glow-pulse"></div>
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-400 rounded-full animate-glow-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-purple-400 rounded-full animate-glow-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-teal-400 rounded-full animate-glow-pulse" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-blue-400 rounded-full animate-glow-pulse" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute bottom-1/4 right-1/2 w-4 h-4 bg-purple-400 rounded-full animate-glow-pulse" style={{ animationDelay: '5s' }}></div>
+      </div>
 
-              {/* Title with fade-in animation - MASSIVE SIZE */}
-              <h1
-                className="text-white font-black text-[6rem] sm:text-[7rem] md:text-[10rem] lg:text-[13rem] xl:text-[16rem] mb-16 leading-[0.85] animate-slide-up"
-                style={{
-                  textShadow: "0 0 100px rgba(0,0,0,1), 0 12px 60px rgba(0,0,0,1), 0 6px 40px rgba(0,0,0,0.9)",
-                  letterSpacing: "-0.04em",
-                  animationDelay: "0.2s"
-                }}
-              >
-                The Architect
-                <br />
-                <span className="text-teal-400 drop-shadow-[0_0_80px_rgba(20,184,166,1)]">Agility & Technology</span>
-              </h1>
-              
-              {/* Subtitle with animation - MASSIVE SIZE */}
-              <p
-                className="text-white text-[3rem] md:text-[4.5rem] lg:text-[6.5rem] xl:text-[8rem] font-bold mb-20 leading-tight animate-slide-up"
-                style={{
-                  textShadow: "0 0 80px rgba(0,0,0,1), 0 8px 50px rgba(0,0,0,1)",
-                  animationDelay: "0.4s"
-                }}
-              >
-                Engineering Enterprise Liberation.
-              </p>
-              
-              {/* CTA Button with animation - MASSIVE SIZE */}
-              <button className="group relative inline-flex items-center gap-6 px-24 py-10 bg-gradient-to-r from-teal-500 to-blue-600 hover:from-teal-400 hover:to-blue-500 text-white font-black text-[2.5rem] md:text-[3rem] lg:text-[4rem] rounded-full shadow-[0_0_100px_rgba(20,184,166,0.9)] hover:shadow-[0_0_150px_rgba(20,184,166,1)] transition-all duration-300 transform hover:scale-105 active:scale-95 border-4 border-teal-400/50 animate-slide-up" style={{ animationDelay: "0.6s" }}>
-                <span className="relative z-10 flex items-center gap-6">
-                  Start the Transformation 
-                  <svg className="w-14 h-14 md:w-16 md:h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/50 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-shimmer"></div>
-              </button>
+      {/* Main content container - Added top padding to clear navbar */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 pt-40 pb-32">
+        {/* Content */}
+        <div className="text-center space-y-12 animate-fade-in">
+          {/* Small badge */}
+          <div className="inline-block">
+            <div className="px-6 py-2 rounded-full bg-white/80 border border-gray-300 backdrop-blur-sm shadow-lg">
+              <span className="text-black text-sm font-semibold tracking-wider uppercase">Marginz</span>
             </div>
           </div>
 
-          {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-teal-400/30 rounded-tl-[2rem]"></div>
-          <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-blue-400/30 rounded-br-[2rem]"></div>
+          {/* Main headline - Black text, no glow */}
+          <h1 className="relative">
+            <div 
+              className="text-black font-black leading-[0.9] tracking-tight animate-slide-up" 
+              style={{ 
+                fontSize: 'clamp(3rem, 12vw, 16rem)', 
+                animationDelay: '0.1s'
+              }}
+            >
+              The Architect
+            </div>
+            <div 
+              className="mt-4 text-black font-black leading-[0.9] tracking-tight animate-slide-up" 
+              style={{ 
+                fontSize: 'clamp(2.5rem, 10vw, 14rem)', 
+                animationDelay: '0.2s'
+              }}
+            >
+              Agility & Technology
+            </div>
+          </h1>
+
+          {/* Subtitle - More visible */}
+          <p className="text-gray-600 font-semibold leading-relaxed max-w-4xl mx-auto animate-slide-up" style={{ fontSize: 'clamp(1.25rem, 3vw, 3rem)', animationDelay: '0.3s' }}>
+            Engineering Enterprise Liberation
+          </p>
+
+          {/* CTA Buttons - Properly sized */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <button className="group relative px-8 py-3 bg-white text-black font-bold rounded-full border-2 border-black hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-base sm:text-lg">
+              <span className="relative z-10 text-black whitespace-nowrap">Start the Transformation</span>
+            </button>
+            <button className="group relative px-8 py-3 bg-gray-100 text-black font-bold rounded-full border-2 border-gray-300 hover:bg-gray-200 transition-all duration-300 text-base sm:text-lg">
+              <span className="text-black whitespace-nowrap">Learn More</span>
+            </button>
+          </div>
         </div>
+
+        {/* Floating elements - Microsoft style */}
+        <div className="absolute bottom-20 left-10 w-20 h-20 rounded-full bg-gradient-to-br from-teal-500/20 to-blue-500/20 blur-xl animate-float"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-xl animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+        <div className="absolute bottom-40 right-40 w-24 h-24 rounded-full bg-gradient-to-br from-blue-500/20 to-teal-500/20 blur-xl animate-float" style={{ animationDelay: '4s', animationDuration: '10s' }}></div>
       </div>
     </section>
   );
