@@ -1,12 +1,15 @@
-import { motion, useInView } from 'motion/react';
+import { motion, useInView } from 'framer-motion'; // Corrected import path
 import { useRef, useState } from 'react';
-import imgRectangle4126 from "figma:asset/0f8ce7e9c7ab64b1125b5a4daa205533b1f19b86.png";
-import imgRectangle4127 from "figma:asset/1d868fd07a29fc01e3f2f7ff7f4c5999ab13d532.png";
-import imgRectangle4128 from "figma:asset/d11bdfba3ac1a2d7fa641e463059b3c95e1a2ec9.png";
-import imgRectangle4122 from "figma:asset/86317754a5167cb7fae51e8f56bcb33e322fd471.png";
-import imgRectangle4123 from "figma:asset/11d90f9ce584f5b4944e34569f79a94c63678074.png";
-import imgRectangle4124 from "figma:asset/85ee1a3a8ddd099804b493dab502bf09578806b6.png";
 import { ArrowRight } from 'lucide-react';
+
+// Image imports using @ alias
+import imgRectangle4126 from "@/assets/0f8ce7e9c7ab64b1125b5a4daa205533b1f19b86.png";
+import imgRectangle4127 from "@/assets/1d868fd07a29fc01e3f2f7ff7f4c5999ab13d532.png";
+import imgRectangle4128 from "@/assets/d11bdfba3ac1a2d7fa641e463059b3c95e1a2ec9.png";
+import imgRectangle4122 from "@/assets/86317754a5167cb7fae51e8f56bcb33e322fd471.png";
+import imgRectangle4123 from "@/assets/11d90f9ce584f5b4944e34569f79a94c63678074.png";
+import imgRectangle4124 from "@/assets/85ee1a3a8ddd099804b493dab502bf09578806b6.png";
+
 
 const projects = [
   { 
@@ -59,7 +62,7 @@ export function ProjectsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
+    <section ref={ref} className="py-24 px-6 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
         animate={{ 
@@ -89,7 +92,7 @@ export function ProjectsSection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-black mb-2 font-medium text-sm"
+            className="text-gray-700 mb-2 font-semibold text-sm tracking-widest uppercase"
           >
             Our Success Stories
           </motion.p>
@@ -97,7 +100,7 @@ export function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="text-black mb-6 text-3xl lg:text-4xl xl:text-5xl font-bold"
+            className="text-black mb-6 text-4xl lg:text-5xl font-extrabold"
           >
             Turning Challenges Into Opportunities
           </motion.h2>
@@ -105,13 +108,14 @@ export function ProjectsSection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="text-black max-w-4xl mx-auto"
+            className="text-gray-600 max-w-4xl mx-auto text-lg"
           >
             We partner with businesses to solve complex problems, harnessing technology to drive innovation, efficiency, and long-term success.
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* Ensure responsiveness: 2 columns on medium screens, 3 on large */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -124,14 +128,20 @@ export function ProjectsSection() {
               style={{ zIndex: hoveredIndex === index ? 10 : 1 }}
             >
               <motion.div
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer"
+                // Lift and custom box shadow
+                whileHover={{ y: -8, boxShadow: '0 25px 45px rgba(0, 0, 0, 0.4)' }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                className="group relative overflow-hidden rounded-3xl h-[400px] cursor-pointer shadow-xl"
               >
-                {/* Background Image */}
+                {/* Background Image (using user's assets) */}
                 <motion.img
                   src={project.image}
                   alt={project.title}
+                  onError={(e) => { 
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null; 
+                    target.src = 'https://placehold.co/400x300/6B7280/ffffff?text=Image+Unavailable'; 
+                  }}
                   className="absolute inset-0 w-full h-full object-cover"
                   animate={{
                     scale: hoveredIndex === index ? 1.1 : 1,
@@ -149,7 +159,7 @@ export function ProjectsSection() {
                   transition={{ duration: 0.3 }}
                 />
 
-                {/* Animated Border */}
+                {/* Animated Border (kept subtle) */}
                 <motion.div
                   className="absolute inset-0 border-2 border-white/20 rounded-3xl"
                   animate={{
@@ -157,8 +167,8 @@ export function ProjectsSection() {
                   }}
                 />
 
-                {/* Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                {/* Content - ADDED text-center for better alignment */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-between text-center" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.7)' }}>
                   {/* Top Section */}
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -166,17 +176,20 @@ export function ProjectsSection() {
                       opacity: hoveredIndex === index ? 1 : 0,
                       y: hoveredIndex === index ? 0 : -20
                     }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, type: 'spring', stiffness: 300, damping: 30 }}
                   >
-                    <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm">
-                      {project.subtitle}
-                    </span>
+                    {/* Centering the subtitle chip */}
+                    <div className="w-full flex justify-center">
+                      <span className="inline-block px-4 py-2 bg-white/30 backdrop-blur-sm rounded-full text-white text-sm font-semibold">
+                        {project.subtitle}
+                      </span>
+                    </div>
                   </motion.div>
 
                   {/* Bottom Section */}
                   <div>
                     <motion.h3 
-                      className="text-white mb-4 text-2xl font-bold"
+                      className="text-white mb-4 text-3xl font-extrabold" 
                       animate={{
                         y: hoveredIndex === index ? -10 : 0
                       }}
@@ -186,7 +199,7 @@ export function ProjectsSection() {
                     </motion.h3>
                     
                     <motion.p
-                      className="text-white/90 text-sm mb-4 italic leading-relaxed"
+                      className="text-white text-lg mb-4 leading-relaxed italic font-medium"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{
                         opacity: hoveredIndex === index ? 1 : 0,
@@ -197,17 +210,17 @@ export function ProjectsSection() {
                       {project.description}
                     </motion.p>
 
-                    {/* Animated Arrow */}
+                    {/* Animated Arrow - Centered */}
                     <motion.div
-                      className="flex items-center gap-2 text-white"
+                      className="flex items-center justify-center gap-2 text-white font-bold"
                       animate={{
-                        x: hoveredIndex === index ? 10 : 0,
-                        opacity: hoveredIndex === index ? 1 : 0.7
+                        // No horizontal shift to keep it centered
+                        opacity: hoveredIndex === index ? 1 : 0.8
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <span className="text-sm font-medium">View Project</span>
-                      <ArrowRight size={20} />
+                      <span className="text-sm">View Project</span>
+                      <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.div>
                   </div>
                 </div>
@@ -217,7 +230,7 @@ export function ProjectsSection() {
                   className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full"
                   animate={{
                     scale: hoveredIndex === index ? 1.5 : 1,
-                    opacity: hoveredIndex === index ? 0.2 : 0.1
+                    opacity: hoveredIndex === index ? 0.3 : 0.1
                   }}
                   transition={{ duration: 0.4 }}
                 />

@@ -1,7 +1,7 @@
 import { motion, useInView, AnimatePresence } from 'motion/react';
 import { useRef, useState } from 'react';
 import * as React from 'react';
-import { CheckCircle, Zap, Target, Rocket } from 'lucide-react';
+import { CheckCircle, Lightbulb, Code, ShieldCheck } from 'lucide-react';
 
 const phases = [
   {
@@ -9,7 +9,7 @@ const phases = [
     title: 'Phase 01',
     description: 'Strategic Discovery & Architecture Design',
     details: 'Our methodology ensures that complexity is translated into a simple, high-velocity build cycle.',
-    icon: Target,
+    icon: Lightbulb,
     color: 'from-purple-500 to-pink-500'
   },
   {
@@ -17,7 +17,7 @@ const phases = [
     title: 'Phase 02',
     description: 'Iterative Development with Continuous Validation',
     details: 'We practice a specialized, client-centric Agile model, engineered to maintain maximum feature flow and zero operational friction.',
-    icon: Zap,
+    icon: Code,
     color: 'from-blue-500 to-cyan-500'
   },
   {
@@ -25,7 +25,7 @@ const phases = [
     title: 'Phase 03',
     description: 'Quality Assurance & Testing',
     details: 'MARGINS has perfected a development methodology that combines agile principles with enterprise-grade project management practices.',
-    icon: Rocket,
+    icon: ShieldCheck,
     color: 'from-green-500 to-teal-500'
   }
 ];
@@ -122,6 +122,26 @@ export function MethodologySection() {
                 transition={{ duration: 1.2, delay: 5.9, ease: "easeInOut" }}
               />
               
+              {/* Connecting line animation indicator - Render BEFORE phase points so it stays behind */}
+              <motion.circle
+                r="6"
+                fill="#5d83b7"
+                initial={{ opacity: 0 }}
+                animate={isInView ? {
+                  offsetDistance: ['0%', '100%'],
+                  opacity: [0, 1, 1, 1, 0]
+                } : {}}
+                transition={{
+                  duration: 8,
+                  delay: 0.5,
+                  ease: "linear"
+                }}
+                style={{
+                  offsetPath: 'path("M 200 40 L 350 240 L 50 240 L 200 40")',
+                  offsetRotate: '0deg'
+                }}
+              />
+              
               {/* Phase Points with Sequential Appearance - Correct order */}
               {[
                 { x: 200, y: 40, label: 'Phase 01', delay: 0.8, phaseNum: '01' },
@@ -152,11 +172,12 @@ export function MethodologySection() {
                   {/* Number text */}
                   <motion.text
                     x={point.x}
-                    y={point.y + 5}
+                    y={point.y + 6}
                     textAnchor="middle"
                     fill="#141c2b"
-                    fontSize="12"
-                    fontWeight="bold"
+                    fontSize="16"
+                    fontWeight="700"
+                    fontFamily="system-ui, -apple-system, sans-serif"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: point.delay + 0.2, duration: 0.3 }}
@@ -185,26 +206,6 @@ export function MethodologySection() {
                   />
                 </g>
               ))}
-              
-              {/* Connecting line animation indicator - Smaller path */}
-              <motion.circle
-                r="6"
-                fill="#5d83b7"
-                initial={{ opacity: 0 }}
-                animate={isInView ? {
-                  offsetDistance: ['0%', '100%'],
-                  opacity: [0, 1, 1, 1, 0]
-                } : {}}
-                transition={{
-                  duration: 8,
-                  delay: 0.5,
-                  ease: "linear"
-                }}
-                style={{
-                  offsetPath: 'path("M 200 40 L 350 240 L 50 240 L 200 40")',
-                  offsetRotate: '0deg'
-                }}
-              />
             </svg>
 
             {/* Phase Content Display - Enhanced cards */}
@@ -234,7 +235,7 @@ export function MethodologySection() {
                                 transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
                                 className={`w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br ${phase.color} rounded-2xl flex items-center justify-center shadow-2xl mx-auto lg:mx-0`}
                               >
-                                <Icon className="text-white" size={40} />
+                                <Icon className="text-white" size={44} strokeWidth={2.5} />
                               </motion.div>
                               <motion.div
                                 initial={{ scale: 0, opacity: 0 }}
@@ -345,7 +346,7 @@ export function MethodologySection() {
                               transition={{ duration: 0.6 }}
                               className={`w-16 h-16 bg-gradient-to-br ${phase.color} rounded-xl flex items-center justify-center mb-4 shadow-lg`}
                             >
-                              <Icon className="text-white" size={32} />
+                              <Icon className="text-white" size={36} strokeWidth={2.5} />
                             </motion.div>
 
                             <h4 className="text-black mb-2 text-lg font-bold">{phase.title}</h4>
