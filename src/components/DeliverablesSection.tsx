@@ -41,9 +41,9 @@ export function DeliverablesSection() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
 
   return (
-    <section ref={ref} className="relative py-32 lg:py-40 overflow-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <section ref={ref} className="relative pt-20 md:pt-24 lg:pt-32 pb-32 md:pb-40 lg:pb-48 bg-gradient-to-b from-gray-50 via-white to-gray-50 px-6 md:px-8 lg:px-12 mb-20 md:mb-24 lg:mb-32" style={{ overflow: 'visible' }}>
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 -z-10" style={{ overflow: 'hidden' }}>
         <motion.div
           animate={{
             scale: [1, 1.3, 1],
@@ -84,13 +84,13 @@ export function DeliverablesSection() {
         />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20 lg:mb-28"
+          className="text-center mb-16 md:mb-20 space-y-6"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -112,7 +112,8 @@ export function DeliverablesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-gray-900 mb-8 text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
+            className="text-gray-900 font-bold leading-tight"
+            style={{ fontSize: 'clamp(28px, 4.5vw, 56px)' }}
           >
             What We Build
           </motion.h2>
@@ -120,14 +121,15 @@ export function DeliverablesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-gray-600 text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed"
+            className="text-gray-600 max-w-4xl mx-auto leading-relaxed px-4"
+            style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}
           >
             Key Deliverables That Transform Your Business
           </motion.p>
         </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {deliverables.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -206,14 +208,14 @@ export function DeliverablesSection() {
                     </div>
 
                     {/* Content Section */}
-                    <div className="relative p-8 flex flex-col h-[280px]">
+                    <div className="relative p-8 flex flex-col h-[280px] bg-white">
                       
                       {/* Title */}
                       <motion.h3
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.5 + index * 0.15 }}
-                        className="text-2xl font-bold text-gray-900 mb-4 leading-tight"
+                        className="text-2xl font-bold text-black mb-4 leading-tight"
                       >
                         {item.title}
                       </motion.h3>
@@ -223,7 +225,7 @@ export function DeliverablesSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: 0.6 + index * 0.15 }}
-                        className="text-gray-600 text-base leading-relaxed mb-6 flex-grow"
+                        className="text-gray-700 text-base leading-relaxed mb-6 flex-grow"
                       >
                         {item.description}
                       </motion.p>
@@ -268,13 +270,7 @@ export function DeliverablesSection() {
                       />
                     </div>
 
-                    {/* Subtle Background Pattern */}
-                    <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-                      <div className="absolute inset-0" style={{
-                        backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-                        backgroundSize: '24px 24px'
-                      }} />
-                    </div>
+                    {/* Removed background pattern for better text readability */}
                   </div>
 
                   {/* Glow Effect on Hover */}

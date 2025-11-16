@@ -67,13 +67,14 @@ const NavBar = () => {
 // --- Hero Section - Microsoft AI Inspired ---
 export const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen flex items-start justify-center overflow-hidden bg-white pt-32">
-      {/* Lighter background for black text visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-blue-50 to-purple-50">
-        <div className="absolute inset-0 opacity-60">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-300/40 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-300/40 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '10s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-300/30 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '12s' }}></div>
+    <section className="relative w-full h-screen flex items-start justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 pt-32">
+      {/* Enhanced vibrant background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 via-purple-100/50 to-pink-100/50">
+        <div className="absolute inset-0 opacity-70">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-400/50 to-blue-500/50 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-400/50 to-pink-500/50 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '10s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-indigo-400/40 to-violet-500/40 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '12s' }}></div>
+          <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-gradient-to-br from-rose-400/40 to-orange-500/40 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '9s' }}></div>
         </div>
       </div>
 
@@ -167,9 +168,9 @@ export const HeroSection = () => {
       </div>
 
       {/* Main content container - Added top padding to clear navbar */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-20 pt-40 pb-32">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-24 md:pt-40 md:pb-32">
         {/* Content */}
-        <div className="text-center space-y-12 animate-fade-in">
+        <div className="text-center space-y-8 md:space-y-12 animate-fade-in">
           {/* Small badge */}
           <div className="inline-block">
             <div className="px-6 py-2 rounded-full bg-white/80 border border-gray-300 backdrop-blur-sm shadow-lg">
@@ -178,20 +179,20 @@ export const HeroSection = () => {
           </div>
 
           {/* Main headline - Black text, no glow */}
-          <h1 className="relative">
+          <h1 className="relative space-y-2 md:space-y-4">
             <div 
               className="text-black font-black leading-[0.9] tracking-tight animate-slide-up" 
               style={{ 
-                fontSize: 'clamp(3rem, 12vw, 16rem)', 
+                fontSize: 'clamp(2.5rem, 10vw, 12rem)', 
                 animationDelay: '0.1s'
               }}
             >
               The Architect
             </div>
             <div 
-              className="mt-4 text-black font-black leading-[0.9] tracking-tight animate-slide-up" 
+              className="text-black font-black leading-[0.9] tracking-tight animate-slide-up" 
               style={{ 
-                fontSize: 'clamp(2.5rem, 10vw, 14rem)', 
+                fontSize: 'clamp(2rem, 8vw, 10rem)', 
                 animationDelay: '0.2s'
               }}
             >
@@ -200,12 +201,12 @@ export const HeroSection = () => {
           </h1>
 
           {/* Subtitle - More visible */}
-          <p className="text-gray-600 font-semibold leading-relaxed max-w-4xl mx-auto animate-slide-up" style={{ fontSize: 'clamp(1.25rem, 3vw, 3rem)', animationDelay: '0.3s' }}>
+          <p className="text-gray-600 font-semibold leading-relaxed max-w-4xl mx-auto animate-slide-up px-4" style={{ fontSize: 'clamp(1.125rem, 2.5vw, 2rem)', animationDelay: '0.3s' }}>
             Engineering Enterprise Liberation
           </p>
 
           {/* CTA Buttons - Properly sized */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 md:pt-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <button className="group relative px-8 py-3 bg-white text-black font-bold rounded-full border-2 border-black hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-base sm:text-lg">
               <span className="relative z-10 text-black whitespace-nowrap">Start the Transformation</span>
             </button>

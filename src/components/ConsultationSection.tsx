@@ -24,7 +24,7 @@ export function ConsultationSection() {
   ];
 
   return (
-    <section ref={ref} className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50">
+    <section ref={ref} className="relative py-20 md:py-24 lg:py-32 px-6 md:px-8 lg:px-12 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 mb-12 md:mb-16 lg:mb-20" style={{ overflow: 'visible' }}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -33,32 +33,32 @@ export function ConsultationSection() {
         }} />
       </div>
 
-      <div className="relative max-w-7xl mx-auto">
+      <div className="relative max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20 space-y-6"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-200/50 backdrop-blur-sm mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-200/50 backdrop-blur-sm"
           >
             <Sparkles className="w-4 h-4 text-blue-600" />
             <span className="text-sm text-blue-700 font-semibold">Get Expert Consultation</span>
           </motion.div>
           
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
+          <h2 className="font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 56px)' }}>
             Let's Build Something Amazing Together
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed px-4" style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}>
             Connect with our experts to receive personalized guidance that aligns with your goals and accelerates your digital transformation.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 xl:gap-24">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -80, scale: 0.9 }}
@@ -147,7 +147,7 @@ export function ConsultationSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="rounded-3xl overflow-hidden shadow-2xl mb-8 h-64 relative"
+              className="rounded-3xl overflow-hidden shadow-2xl mb-12 md:mb-16 h-64 relative"
             >
               {/* Decorative Frame */}
               <motion.div
@@ -170,7 +170,7 @@ export function ConsultationSection() {
               </motion.div>
             </motion.div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 md:space-y-8">
               <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <div className="flex items-start gap-4">
                   <MapPin className="text-[#141c2b] shrink-0" size={24} />

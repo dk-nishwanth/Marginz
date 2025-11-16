@@ -28,23 +28,23 @@ export function InsightsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 px-6 max-w-7xl mx-auto">
+    <section ref={ref} className="py-20 md:py-24 lg:py-32 px-6 md:px-8 lg:px-12 max-w-[1400px] mx-auto mb-16 md:mb-20 lg:mb-24">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        className="text-center mb-16 md:mb-20 space-y-6"
       >
-        <p className="text-gray-600 mb-2 font-medium text-sm">Latest Insights</p>
-        <h2 className="text-black mb-6 text-3xl lg:text-4xl font-bold">
+        <p className="text-gray-600 font-medium text-sm uppercase tracking-wider">Latest Insights</p>
+        <h2 className="text-black font-bold leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 56px)' }}>
           Empowering People, Building Technology, Delivering Impact
         </h2>
-        <p className="text-gray-600 max-w-4xl mx-auto">
+        <p className="text-gray-600 max-w-4xl mx-auto px-4" style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}>
           Explore expert insights, technology trends, and strategies designed to help businesses innovate, scale, and thrive in the digital era.
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
         {insights.map((insight, index) => (
           <motion.div
             key={insight.title}

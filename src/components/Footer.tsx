@@ -9,16 +9,16 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-16 px-6 mt-32">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+    <footer className="bg-gray-900 text-white py-16 md:py-20 px-6 md:px-8 lg:px-12 mt-20 md:mt-24 lg:mt-32">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 mb-12">
           {/* Company Info */}
           <div>
             <motion.h3
               whileHover={{ scale: 1.05 }}
               className="text-white mb-4 font-bold"
             >
-              Margins Global
+              Marginz Global
             </motion.h3>
             <p className="text-gray-400 leading-relaxed">
               Empowering traders worldwide with advanced tools and global market access.

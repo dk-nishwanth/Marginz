@@ -7,20 +7,39 @@ export function QualitySection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const statsData = [
+    { value: '100%', label: 'Precision' },
+    { value: '0', label: 'Defects' },
+    { value: '24/7', label: 'Monitoring' },
+  ];
+
   return (
-    <section ref={ref} className="py-16 px-6 max-w-7xl mx-auto relative overflow-hidden">
-      {/* Animated Background Elements */}
+    <section ref={ref} className="py-20 md:py-24 lg:py-32 px-6 md:px-8 lg:px-12 max-w-[1400px] mx-auto relative overflow-hidden mb-12 md:mb-16 lg:mb-20">
+      {/* Enhanced Animated Background Elements */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 0.05 } : {}}
+        animate={isInView ? { opacity: 0.4 } : {}}
         transition={{ duration: 1 }}
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none -z-10"
       >
-        <div className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-64 h-64 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full blur-3xl" />
+        <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-red-400/40 to-orange-500/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-amber-400/40 to-yellow-500/40 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-br from-rose-400/30 to-pink-500/30 rounded-full blur-3xl" />
       </motion.div>
+      
+      {/* Decorative pattern */}
+      <div className="absolute inset-0 opacity-[0.06] pointer-events-none -z-10">
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(239, 68, 68, 0.3) 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }}
+        />
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center relative z-10">
+        
         {/* Image with Enhanced Animations */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -115,20 +134,22 @@ export function QualitySection() {
           initial={{ opacity: 0, x: 50 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-6 order-1 md:order-2"
+          className="space-y-6 md:space-y-8 order-1 md:order-2 pr-0 md:pr-4 lg:pr-6"
         >
-          {/* Title with Character Animation */}
+          {/* Title */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
+            className="space-y-6"
           >
             <motion.h2
-              className="text-black mb-6 text-3xl lg:text-4xl font-bold"
+              className="text-black font-bold leading-tight"
               initial={{ backgroundPosition: '0% 50%' }}
               animate={isInView ? { backgroundPosition: '100% 50%' } : {}}
               transition={{ duration: 2, delay: 0.5 }}
               style={{
+                fontSize: 'clamp(28px, 4.5vw, 56px)',
                 backgroundImage: 'linear-gradient(90deg, #000 0%, #ef4444 50%, #000 100%)',
                 backgroundSize: '200% 100%',
                 backgroundClip: 'text',
@@ -139,7 +160,7 @@ export function QualitySection() {
             </motion.h2>
           </motion.div>
 
-          {/* Description with Line-by-Line Reveal */}
+          {/* Description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -152,7 +173,7 @@ export function QualitySection() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 to-orange-500 origin-left"
             />
-            <p className="text-gray-700 leading-relaxed pl-6">
+            <p className="text-gray-700 leading-relaxed pl-6" style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}>
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -171,16 +192,22 @@ export function QualitySection() {
             </p>
           </motion.div>
 
-          {/* Button with Enhanced Hover Effects */}
+          {/* Learn More Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.6 }}
+            className="mt-6"
           >
             <motion.button
               whileHover={{ scale: 1.05, x: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative flex items-center gap-2 bg-gray-200 hover:bg-[#141c2b] text-black hover:text-white px-8 py-4 rounded-xl transition-all duration-300 mt-6 overflow-hidden"
+              className="group relative flex items-center gap-2 bg-gray-200 hover:bg-[#141c2b] text-black hover:text-white px-8 py-4 rounded-xl transition-all duration-300 overflow-hidden"
+              // Adjusted to look more like the image (white background, shadow on hover)
+              style={{
+                backgroundColor: '#f3f4f6', // Light gray background
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06)',
+              }}
             >
               {/* Button Background Animation */}
               <motion.div
@@ -189,7 +216,7 @@ export function QualitySection() {
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="relative z-10">Learn More</span>
+              <span className="relative z-10 text-lg font-medium">Learn More</span>
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
@@ -200,31 +227,28 @@ export function QualitySection() {
             </motion.button>
           </motion.div>
 
-          {/* Stats or Features (Optional Enhancement) */}
+          {/* Stats Cards - Realigned to match image layout */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="grid grid-cols-3 gap-4 pt-6"
+            className="grid grid-cols-3 gap-6 pt-10" // Padding top to separate from button
           >
-            {[
-              { value: '100%', label: 'Precision' },
-              { value: '0', label: 'Defects' },
-              { value: '24/7', label: 'Monitoring' },
-            ].map((stat, index) => (
+            {statsData.map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={isInView ? { scale: 1, opacity: 1 } : {}}
                 transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-3 rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200"
+                // Simple styling matching the image: white background, light border/shadow
+                className="text-center p-3 rounded-xl bg-white border border-gray-100 shadow-sm transition-all duration-300" 
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ delay: 1 + index * 0.1, type: 'spring', stiffness: 200 }}
-                  className="text-2xl font-bold bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent"
+                  className="text-2xl font-bold text-black" // Text color changed back to black
                 >
                   {stat.value}
                 </motion.div>
@@ -236,4 +260,4 @@ export function QualitySection() {
       </div>
     </section>
   );
-}
+} 

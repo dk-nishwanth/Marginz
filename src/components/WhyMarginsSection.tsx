@@ -25,6 +25,7 @@ const impactItems = [
     icon: Users,
     letter: 'A',
     title: 'Agility',
+    
     description: 'Adaptive approaches for changing needs'
   },
   {
@@ -46,38 +47,51 @@ export function WhyMarginsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Animated Background */}
+    <section ref={ref} className="pt-32 md:pt-40 lg:pt-48 pb-32 md:pb-40 lg:pb-48 px-6 md:px-8 lg:px-12 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 relative mb-20 md:mb-24 lg:mb-32" style={{ overflow: 'visible' }}>
+      {/* Enhanced Animated Background */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 0.03 } : {}}
+        animate={isInView ? { opacity: 0.5 } : {}}
         transition={{ duration: 1 }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-purple-400/40 to-pink-500/40 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-blue-400/40 to-cyan-500/40 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-indigo-400/30 to-violet-500/30 rounded-full blur-3xl" />
       </motion.div>
+      
+      {/* Decorative dots pattern */}
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(99, 102, 241, 0.3) 1px, transparent 1px)',
+            backgroundSize: '40px 40px'
+          }}
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20 space-y-6"
         >
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-black mb-4 text-3xl lg:text-4xl font-bold"
+            className="text-black font-bold"
+            style={{ fontSize: 'clamp(28px, 4.5vw, 56px)' }}
           >
-            Why Margins?
+            Why Marginz?
           </motion.h2>
           <motion.h3
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-gray-700 mb-6 text-xl lg:text-2xl font-bold"
+            className="text-gray-700 text-xl md:text-2xl lg:text-3xl font-bold"
           >
             The IMPACT Methodology
           </motion.h3>
@@ -85,13 +99,14 @@ export function WhyMarginsSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-gray-600 max-w-4xl mx-auto leading-relaxed px-4"
+            style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}
           >
             IMPACT is the proprietary framework that defines our results-first approach. It is the systematic process that guarantees transformative change, superior quality, and measurable financial yield on your digital investment.
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {impactItems.map((item, index) => (
             <motion.div
               key={item.letter}
@@ -106,11 +121,11 @@ export function WhyMarginsSection() {
               <motion.div
                 whileHover={{ y: -12, scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow h-full relative overflow-hidden"
+                className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow h-full relative overflow-hidden border border-white/50"
               >
-                {/* Hover Gradient Background */}
+                {/* Hover Gradient Background - More vibrant */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-[#141c2b]/5 to-[#2a3f5f]/5 opacity-0"
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0"
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -131,11 +146,12 @@ export function WhyMarginsSection() {
                     >
                       <item.icon size={28} />
                     </motion.div>
+                    {/* MODIFIED SECTION: Changed text color and bolding */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0 }}
-                      animate={isInView ? { opacity: 0.2, scale: 1 } : {}}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}} 
                       transition={{ duration: 0.5, delay: 0.7 + index * 0.15 }}
-                      className="text-[#141c2b] text-4xl font-bold"
+                      className="text-black text-4xl font-extrabold"
                     >
                       {item.letter}
                     </motion.div>

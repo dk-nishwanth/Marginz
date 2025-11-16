@@ -52,7 +52,7 @@ export function CreativeCardsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
+    <section ref={ref} className="py-20 md:py-24 lg:py-32 px-6 md:px-8 lg:px-12 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative mb-16 md:mb-20 lg:mb-24" style={{ overflow: 'visible' }}>
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-10">
         <motion.div
@@ -68,22 +68,22 @@ export function CreativeCardsSection() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20 space-y-6"
         >
-          <h2 className="text-black mb-6 text-3xl lg:text-4xl xl:text-5xl font-bold">
-            Why Choose MARGINS
+          <h2 className="text-black font-bold leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 56px)' }}>
+            Why Choose MARGINZ
           </h2>
-          <p className="text-black max-w-3xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-3xl mx-auto px-4" style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}>
             We combine technical excellence with creative innovation to deliver solutions that exceed expectations
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {cards.map((card, index) => {
             const Icon = card.icon;
             return (

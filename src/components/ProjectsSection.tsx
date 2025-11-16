@@ -62,7 +62,7 @@ export function ProjectsSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
+    <section ref={ref} className="py-20 md:py-24 lg:py-32 px-6 md:px-8 lg:px-12 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative mb-16 md:mb-20 lg:mb-24" style={{ overflow: 'visible' }}>
       {/* Animated Background Elements */}
       <motion.div
         animate={{ 
@@ -81,18 +81,18 @@ export function ProjectsSection() {
         className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
       />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20 space-y-6"
         >
           <motion.p 
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="text-gray-700 mb-2 font-semibold text-sm tracking-widest uppercase"
+            className="text-gray-700 font-semibold text-sm tracking-widest uppercase"
           >
             Our Success Stories
           </motion.p>
@@ -100,7 +100,8 @@ export function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="text-black mb-6 text-4xl lg:text-5xl font-extrabold"
+            className="text-black font-extrabold leading-tight"
+            style={{ fontSize: 'clamp(28px, 4.5vw, 56px)' }}
           >
             Turning Challenges Into Opportunities
           </motion.h2>
@@ -108,14 +109,15 @@ export function ProjectsSection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
-            className="text-gray-600 max-w-4xl mx-auto text-lg"
+            className="text-gray-600 max-w-4xl mx-auto leading-relaxed px-4"
+            style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}
           >
             We partner with businesses to solve complex problems, harnessing technology to drive innovation, efficiency, and long-term success.
           </motion.p>
         </motion.div>
 
         {/* Ensure responsiveness: 2 columns on medium screens, 3 on large */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -167,73 +169,38 @@ export function ProjectsSection() {
                   }}
                 />
 
-                {/* Content - ADDED text-center for better alignment */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between text-center" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.7)' }}>
-                  {/* Top Section */}
-                  <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ 
-                      opacity: hoveredIndex === index ? 1 : 0,
-                      y: hoveredIndex === index ? 0 : -20
-                    }}
-                    transition={{ duration: 0.3, type: 'spring', stiffness: 300, damping: 30 }}
+                {/* Content - Simple title overlay */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  {/* Title - Always visible */}
+                  <motion.h3 
+                    className="text-white text-3xl lg:text-4xl font-bold leading-tight drop-shadow-2xl"
+                    style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8)' }}
                   >
-                    {/* Centering the subtitle chip */}
-                    <div className="w-full flex justify-center">
-                      <span className="inline-block px-4 py-2 bg-white/30 backdrop-blur-sm rounded-full text-white text-sm font-semibold">
-                        {project.subtitle}
-                      </span>
+                    {project.title.split('(')[0].trim()}
+                  </motion.h3>
+                  
+                  {/* Hover content */}
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{
+                      opacity: hoveredIndex === index ? 1 : 0,
+                      height: hoveredIndex === index ? 'auto' : 0
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-white/90 text-base mt-4 mb-4 leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex items-center gap-2 text-white font-semibold">
+                      <span className="text-sm">View Project</span>
+                      <ArrowRight size={18} />
                     </div>
                   </motion.div>
-
-                  {/* Bottom Section */}
-                  <div>
-                    <motion.h3 
-                      className="text-white mb-4 text-3xl font-extrabold" 
-                      animate={{
-                        y: hoveredIndex === index ? -10 : 0
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {project.title.split('(')[0].trim()}
-                    </motion.h3>
-                    
-                    <motion.p
-                      className="text-white text-lg mb-4 leading-relaxed italic font-medium"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{
-                        opacity: hoveredIndex === index ? 1 : 0,
-                        height: hoveredIndex === index ? 'auto' : 0
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {project.description}
-                    </motion.p>
-
-                    {/* Animated Arrow - Centered */}
-                    <motion.div
-                      className="flex items-center justify-center gap-2 text-white font-bold"
-                      animate={{
-                        // No horizontal shift to keep it centered
-                        opacity: hoveredIndex === index ? 1 : 0.8
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-sm">View Project</span>
-                      <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
-                    </motion.div>
-                  </div>
                 </div>
 
-                {/* Decorative Corner Element */}
-                <motion.div
-                  className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full"
-                  animate={{
-                    scale: hoveredIndex === index ? 1.5 : 1,
-                    opacity: hoveredIndex === index ? 0.3 : 0.1
-                  }}
-                  transition={{ duration: 0.4 }}
-                />
+
               </motion.div>
             </motion.div>
           ))}

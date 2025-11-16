@@ -39,7 +39,7 @@ export function AnimatedTestimonialCards() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+    <section ref={ref} className="py-20 md:py-24 lg:py-32 px-6 md:px-8 lg:px-12 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative mb-16 md:mb-20 lg:mb-24" style={{ overflow: 'visible' }}>
       {/* Floating Shapes Background */}
       <motion.div
         animate={{
@@ -58,22 +58,22 @@ export function AnimatedTestimonialCards() {
         className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"
       />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-20 space-y-6"
         >
-          <h2 className="text-black mb-6 text-3xl lg:text-4xl font-bold">
+          <h2 className="text-black font-bold leading-tight" style={{ fontSize: 'clamp(28px, 4.5vw, 56px)' }}>
             Client Success Stories
           </h2>
-          <p className="text-gray-700 max-w-3xl mx-auto text-lg font-medium">
+          <p className="text-gray-700 max-w-3xl mx-auto px-4" style={{ fontSize: 'clamp(16px, 1.25vw, 18px)', lineHeight: '1.7' }}>
             Real results from real partnerships. See how we've transformed businesses through innovative solutions.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.author}
