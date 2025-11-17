@@ -1,10 +1,10 @@
 import { motion, useInView, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import { Sparkles, Target, Award } from 'lucide-react';
-import imgRectangle4117 from "figma:asset/0325ee26afaae80a474316be565a20584a0599e3.png";
-import imgRectangle4120 from "figma:asset/f651be564541ad619f92617f4cfe4f3f578b0c8f.png";
-import imgRectangle4121 from "figma:asset/e633a6a37b8bf6df9aaaa684804db4ebc2112a8a.png";
-import imgFrame6 from "figma:asset/68f2477970241dc43c8d42630537a5df3b7309aa.png";
+import imgRectangle4117 from "../assets/0325ee26afaae80a474316be565a20584a0599e3.png";
+import imgRectangle4120 from "../assets/f651be564541ad619f92617f4cfe4f3f578b0c8f.png";
+import imgRectangle4121 from "../assets/e633a6a37b8bf6df9aaaa684804db4ebc2112a8a.png";
+import imgFrame6 from "../assets/68f2477970241dc43c8d42630537a5df3b7309aa.png";
 
 const deliverables = [
   {

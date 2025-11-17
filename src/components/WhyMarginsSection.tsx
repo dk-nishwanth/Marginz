@@ -47,25 +47,25 @@ export function WhyMarginsSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="pt-32 md:pt-40 lg:pt-48 pb-32 md:pb-40 lg:pb-48 px-6 md:px-8 lg:px-12 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 relative mb-20 md:mb-24 lg:mb-32" style={{ overflow: 'visible' }}>
-      {/* Enhanced Animated Background */}
+    <section ref={ref} className="pt-32 md:pt-40 lg:pt-48 pb-32 md:pb-40 lg:pb-48 px-6 md:px-8 lg:px-12 bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 relative mb-20 md:mb-24 lg:mb-32" style={{ overflow: 'visible' }}>
+      {/* Blue theme Animated Background */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 0.5 } : {}}
         transition={{ duration: 1 }}
         className="absolute inset-0 pointer-events-none"
       >
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-purple-400/40 to-pink-500/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-blue-400/40 to-cyan-500/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-indigo-400/30 to-violet-500/30 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-blue-400/45 to-blue-600/45 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-cyan-400/45 to-sky-500/45 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-indigo-400/35 to-blue-500/35 rounded-full blur-3xl" />
       </motion.div>
       
-      {/* Decorative dots pattern */}
+      {/* Decorative dots pattern - Blue theme */}
       <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
         <div 
           className="absolute inset-0" 
           style={{
-            backgroundImage: 'radial-gradient(circle, rgba(99, 102, 241, 0.3) 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, rgba(37, 99, 235, 0.3) 1px, transparent 1px)',
             backgroundSize: '40px 40px'
           }}
         />
@@ -123,9 +123,9 @@ export function WhyMarginsSection() {
                 transition={{ type: "spring", stiffness: 300 }}
                 className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow h-full relative overflow-hidden border border-white/50"
               >
-                {/* Hover Gradient Background - More vibrant */}
+                {/* Hover Gradient Background - Blue theme */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-0"
+                  className="absolute inset-0 bg-gradient-to-br from-blue-500/12 via-sky-500/12 to-cyan-500/12 opacity-0"
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />

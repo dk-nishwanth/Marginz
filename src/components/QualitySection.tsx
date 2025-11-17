@@ -1,7 +1,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
-import imgRectangle4114 from "figma:asset/f9aa8563d10e2f066c040298f2575d495ee696ca.png";
+import imgRectangle4114 from "../assets/f9aa8563d10e2f066c040298f2575d495ee696ca.png";
 
 export function QualitySection() {
   const ref = useRef(null);
@@ -15,24 +15,24 @@ export function QualitySection() {
 
   return (
     <section ref={ref} className="py-20 md:py-24 lg:py-32 px-6 md:px-8 lg:px-12 max-w-[1400px] mx-auto relative overflow-hidden mb-12 md:mb-16 lg:mb-20">
-      {/* Enhanced Animated Background Elements */}
+      {/* Blue theme Animated Background Elements */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 0.4 } : {}}
         transition={{ duration: 1 }}
         className="absolute inset-0 pointer-events-none -z-10"
       >
-        <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-red-400/40 to-orange-500/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-amber-400/40 to-yellow-500/40 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-br from-rose-400/30 to-pink-500/30 rounded-full blur-3xl" />
+        <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-blue-400/45 to-blue-600/45 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-br from-cyan-400/45 to-sky-500/45 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-br from-indigo-400/35 to-blue-500/35 rounded-full blur-3xl" />
       </motion.div>
       
-      {/* Decorative pattern */}
+      {/* Decorative pattern - Blue theme */}
       <div className="absolute inset-0 opacity-[0.06] pointer-events-none -z-10">
         <div 
           className="absolute inset-0" 
           style={{
-            backgroundImage: 'radial-gradient(circle, rgba(239, 68, 68, 0.3) 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, rgba(37, 99, 235, 0.3) 1px, transparent 1px)',
             backgroundSize: '40px 40px'
           }}
         />

@@ -67,23 +67,23 @@ const NavBar = () => {
 // --- Hero Section - Microsoft AI Inspired ---
 export const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen flex items-start justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 pt-32">
-      {/* Enhanced vibrant background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 via-purple-100/50 to-pink-100/50">
+    <section className="relative w-full h-screen flex items-start justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 pt-32">
+      {/* Enhanced blue theme background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-sky-100/60 to-cyan-100/60">
         <div className="absolute inset-0 opacity-70">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-400/50 to-blue-500/50 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-400/50 to-pink-500/50 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '10s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-indigo-400/40 to-violet-500/40 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '12s' }}></div>
-          <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-gradient-to-br from-rose-400/40 to-orange-500/40 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '9s' }}></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/60 to-blue-600/60 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-400/60 to-sky-500/60 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '10s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-indigo-400/50 to-blue-600/50 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '12s' }}></div>
+          <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-gradient-to-br from-sky-400/50 to-cyan-500/50 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '9s' }}></div>
         </div>
       </div>
 
-      {/* Grid pattern overlay - More visible */}
-      <div className="absolute inset-0 opacity-[0.08]">
+      {/* Grid pattern overlay - Blue theme */}
+      <div className="absolute inset-0 opacity-[0.10]">
         <div 
           className="absolute inset-0" 
           style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(rgba(37, 99, 235, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.12) 1px, transparent 1px)',
             backgroundSize: '100px 100px'
           }}
         ></div>
@@ -158,23 +158,48 @@ export const HeroSection = () => {
           />
         </svg>
 
-        {/* Glowing dots along paths - Larger and brighter */}
-        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-teal-400 rounded-full animate-glow-pulse"></div>
-        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-400 rounded-full animate-glow-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-purple-400 rounded-full animate-glow-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-teal-400 rounded-full animate-glow-pulse" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-blue-400 rounded-full animate-glow-pulse" style={{ animationDelay: '4s' }}></div>
-        <div className="absolute bottom-1/4 right-1/2 w-4 h-4 bg-purple-400 rounded-full animate-glow-pulse" style={{ animationDelay: '5s' }}></div>
+        {/* Glowing dots along paths - Blue theme */}
+        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-cyan-400 rounded-full animate-glow-pulse shadow-lg shadow-cyan-400/50"></div>
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-500 rounded-full animate-glow-pulse shadow-lg shadow-blue-500/50" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-indigo-400 rounded-full animate-glow-pulse shadow-lg shadow-indigo-400/50" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-sky-400 rounded-full animate-glow-pulse shadow-lg shadow-sky-400/50" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-blue-600 rounded-full animate-glow-pulse shadow-lg shadow-blue-600/50" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute bottom-1/4 right-1/2 w-4 h-4 bg-cyan-500 rounded-full animate-glow-pulse shadow-lg shadow-cyan-500/50" style={{ animationDelay: '5s' }}></div>
+      </div>
+      
+      {/* Floating geometric shapes - Blue theme */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Animated hexagons */}
+        <div className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-400/30 rotate-45 animate-float" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute top-40 right-20 w-12 h-12 border-2 border-cyan-400/30 rotate-12 animate-float" style={{ animationDuration: '10s', animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-1/4 w-20 h-20 border-2 border-indigo-400/30 -rotate-12 animate-float" style={{ animationDuration: '12s', animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-1/3 w-14 h-14 border-2 border-sky-400/30 rotate-45 animate-float" style={{ animationDuration: '9s', animationDelay: '3s' }}></div>
+        
+        {/* Animated circles with gradients */}
+        <div className="absolute top-1/3 left-1/5 w-24 h-24 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-500/20 animate-float blur-sm" style={{ animationDuration: '15s' }}></div>
+        <div className="absolute bottom-1/3 right-1/5 w-32 h-32 rounded-full bg-gradient-to-br from-indigo-400/20 to-blue-500/20 animate-float blur-sm" style={{ animationDuration: '18s', animationDelay: '2s' }}></div>
+        
+        {/* Animated lines/bars */}
+        <div className="absolute top-1/4 right-1/4 w-1 h-32 bg-gradient-to-b from-transparent via-blue-400/40 to-transparent animate-float" style={{ animationDuration: '10s' }}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-1 h-24 bg-gradient-to-b from-transparent via-cyan-400/40 to-transparent animate-float" style={{ animationDuration: '12s', animationDelay: '1s' }}></div>
+      </div>
+
+      {/* Animated code-like elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        <div className="absolute top-1/4 left-10 text-blue-500 font-mono text-xs animate-float" style={{ animationDuration: '15s' }}>{'<div>'}</div>
+        <div className="absolute top-1/3 right-20 text-cyan-500 font-mono text-xs animate-float" style={{ animationDuration: '12s', animationDelay: '2s' }}>{'{ }'}</div>
+        <div className="absolute bottom-1/3 left-1/4 text-indigo-500 font-mono text-xs animate-float" style={{ animationDuration: '18s', animationDelay: '1s' }}>{'</>'}</div>
+        <div className="absolute bottom-1/4 right-1/3 text-sky-500 font-mono text-xs animate-float" style={{ animationDuration: '14s', animationDelay: '3s' }}>{'( )'}</div>
       </div>
 
       {/* Main content container - Added top padding to clear navbar */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-24 md:pt-40 md:pb-32">
         {/* Content */}
         <div className="text-center space-y-8 md:space-y-12 animate-fade-in">
-          {/* Small badge */}
+          {/* Small badge with glow */}
           <div className="inline-block">
-            <div className="px-6 py-2 rounded-full bg-white/80 border border-gray-300 backdrop-blur-sm shadow-lg">
-              <span className="text-black text-sm font-semibold tracking-wider uppercase">Marginz</span>
+            <div className="px-6 py-2 rounded-full bg-white/90 border-2 border-blue-200 backdrop-blur-sm shadow-lg animate-pulse-glow">
+              <span className="text-blue-600 text-sm font-bold tracking-wider uppercase">Marginz</span>
             </div>
           </div>
 
@@ -216,10 +241,14 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Floating elements - Microsoft style */}
-        <div className="absolute bottom-20 left-10 w-20 h-20 rounded-full bg-gradient-to-br from-teal-500/20 to-blue-500/20 blur-xl animate-float"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 blur-xl animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
-        <div className="absolute bottom-40 right-40 w-24 h-24 rounded-full bg-gradient-to-br from-blue-500/20 to-teal-500/20 blur-xl animate-float" style={{ animationDelay: '4s', animationDuration: '10s' }}></div>
+        {/* Floating elements - Blue theme */}
+        <div className="absolute bottom-20 left-10 w-20 h-20 rounded-full bg-gradient-to-br from-blue-500/25 to-cyan-500/25 blur-xl animate-float"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500/25 to-blue-600/25 blur-xl animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
+        <div className="absolute bottom-40 right-40 w-24 h-24 rounded-full bg-gradient-to-br from-sky-500/25 to-cyan-500/25 blur-xl animate-float" style={{ animationDelay: '4s', animationDuration: '10s' }}></div>
+        
+        {/* Additional vibrant elements */}
+        <div className="absolute top-1/2 left-20 w-16 h-16 rounded-full bg-gradient-to-br from-blue-400/30 to-blue-600/30 blur-lg animate-float" style={{ animationDelay: '1s', animationDuration: '12s' }}></div>
+        <div className="absolute bottom-1/3 right-10 w-28 h-28 rounded-full bg-gradient-to-br from-cyan-400/30 to-sky-500/30 blur-lg animate-float" style={{ animationDelay: '3s', animationDuration: '14s' }}></div>
       </div>
     </section>
   );

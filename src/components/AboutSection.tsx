@@ -38,10 +38,10 @@ export function AboutSection() {
 
   return (
     <section ref={ref} className="relative pt-24 md:pt-32 lg:pt-40 pb-48 md:pb-56 lg:pb-64 px-6 md:px-8 lg:px-12 max-w-[1400px] mx-auto mb-32 md:mb-40 lg:mb-48" style={{ overflow: 'visible' }}>
-      {/* Vibrant background elements */}
+      {/* Blue theme background elements */}
       <div className="absolute inset-0 -z-10 opacity-40">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-cyan-500/30 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-400/30 to-pink-500/30 rounded-full blur-[120px]"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/40 to-blue-600/40 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-cyan-400/40 to-sky-500/40 rounded-full blur-[120px]"></div>
       </div>
       
       <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center relative z-10">

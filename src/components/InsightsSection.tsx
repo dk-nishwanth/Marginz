@@ -1,9 +1,9 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
-import imgRectangle4141 from "figma:asset/91c704391a9257ccb23c9293247c1bf2fe16f6d0.png";
-import imgRectangle4142 from "figma:asset/d09dec56757795546d6d7b16bb2434880e1d107c.png";
-import imgRectangle4143 from "figma:asset/faca54562e6e5a2595c0623f27999075b293ed9f.png";
+import imgRectangle4141 from "../assets/91c704391a9257ccb23c9293247c1bf2fe16f6d0.png";
+import imgRectangle4142 from "../assets/d09dec56757795546d6d7b16bb2434880e1d107c.png";
+import imgRectangle4143 from "../assets/faca54562e6e5a2595c0623f27999075b293ed9f.png";
 
 const insights = [
   {

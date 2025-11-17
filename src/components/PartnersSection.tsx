@@ -1,6 +1,6 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
-import imgRectangle4116 from "figma:asset/6384c16fe60fd03034ea9a412bb26d7700abc522.png";
+import imgRectangle4116 from "@/assets/6384c16fe60fd03034ea9a412bb26d7700abc522.png";
 
 export function PartnersSection() {
   const ref = useRef(null);
@@ -8,10 +8,10 @@ export function PartnersSection() {
 
   return (
     <section ref={ref} className="relative py-16 md:py-20 lg:py-24 px-6 md:px-8 lg:px-12 max-w-[1400px] mx-auto mb-12 md:mb-16 lg:mb-20 overflow-hidden">
-      {/* Vibrant background */}
+      {/* Blue theme background */}
       <div className="absolute inset-0 -z-10 opacity-30">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-400/40 to-red-500/40 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-green-400/40 to-teal-500/40 rounded-full blur-[120px]"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/45 to-indigo-500/45 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-cyan-400/45 to-sky-500/45 rounded-full blur-[120px]"></div>
       </div>
       
       <motion.div
@@ -37,22 +37,22 @@ export function PartnersSection() {
         transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         className="relative overflow-hidden rounded-3xl shadow-2xl"
       >
-        {/* Enhanced Decorative Frame */}
+        {/* Blue theme Decorative Frame */}
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="absolute -inset-4 bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-3xl blur-2xl -z-10"
+          className="absolute -inset-4 bg-gradient-to-br from-blue-500/35 via-sky-500/35 to-cyan-500/35 rounded-3xl blur-2xl -z-10"
         />
         
-        {/* Additional glow effect */}
+        {/* Additional blue glow effect */}
         <motion.div
           animate={{ 
             opacity: [0.3, 0.5, 0.3],
             scale: [1, 1.05, 1]
           }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="absolute -inset-2 bg-gradient-to-r from-cyan-500/20 via-indigo-500/20 to-pink-500/20 rounded-3xl blur-xl -z-10"
+          className="absolute -inset-2 bg-gradient-to-r from-blue-500/25 via-indigo-500/25 to-cyan-500/25 rounded-3xl blur-xl -z-10"
         />
 
         <motion.div

@@ -1,8 +1,8 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Quote } from 'lucide-react';
-import imgRectangle4129 from "figma:asset/e70958468beb6b0c9b3e974dd139e3884de1abed.png";
-import imgRectangle4130 from "figma:asset/23688ea5a88b67cabe7150ff351a9916e0574ff2.png";
+import imgRectangle4129 from "../assets/e70958468beb6b0c9b3e974dd139e3884de1abed.png";
+import imgRectangle4130 from "../assets/23688ea5a88b67cabe7150ff351a9916e0574ff2.png";
 
 const testimonials = [
   {
