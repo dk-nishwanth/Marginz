@@ -231,7 +231,7 @@ export const HeroSection = () => {
           </p>
 
           {/* CTA Buttons - Properly sized */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 md:pt-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-7 md:pt-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <button className="group relative px-8 py-3 bg-white text-black font-bold rounded-full border-2 border-black hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-base sm:text-lg">
               <span className="relative z-10 text-black whitespace-nowrap">Start the Transformation</span>
             </button>
