@@ -1,74 +1,105 @@
-import React, { useState } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
-// --- Placeholder NavBar Component ---
-const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+// --- Content Definitions for the Carousel ---
+const carouselContent = [
+  {
+    mainTitle: 'The Architect',
+    subTitle: 'Agility & Technology',
+    tagline: 'Engineering Enterprise Liberation',
+  },
+  {
+    mainTitle: 'The Strategist',
+    subTitle: 'ROI & Business Outcome',
+    tagline: 'Beyond Code: Delivering Measurable MARGINS on Digital Investment.',
+  },
+  {
+    mainTitle: 'The Specialist',
+    subTitle: 'Expertise & Future-Proofing',
+    tagline: 'The MERN Stack Masters. Deploying Enterprise-Grade Digital Foundations.',
+  },
+  {
+    mainTitle: 'The Innovator',
+    subTitle: 'Automation & Strategic Partnership',
+    tagline: 'Automation Elevated. Your Partner in Building the Frictionless Enterprise.',
+  },
+  {
+    mainTitle: 'The Quality Anchor',
+    subTitle: 'Quality & Reliability',
+    tagline: 'Quality-First Development. Where High Performance is the Minimum Standard.',
+  },
+];
+
+
+// --- Fading Carousel Text Component ---
+interface CarouselItem {
+  mainTitle: string;
+  subTitle: string;
+  tagline: string;
+}
+
+const FadingCarouselText = ({ content }: { content: CarouselItem[] }) => {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const totalDuration = 6000; // 6 seconds per slide for smoother transitions
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIdx(prevIdx => (prevIdx + 1) % content.length);
+    }, totalDuration);
+
+    return () => clearInterval(interval);
+  }, [content.length]);
+
+  const currentItem = content[currentIdx];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-40 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo/Brand */}
-          <div className="flex items-center">
-            <Zap className="h-6 w-6 text-teal-600 mr-2" />
-            <span className="text-xl font-extrabold text-gray-900 tracking-wider">
-              TECH AGILITY
-            </span>
-          </div>
-
-          {/* Desktop Links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {['Home', 'Services', 'Insights', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-teal-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500"
-            >
-              {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
-            </button>
-          </div>
+    <>
+      {/* Main Headline */}
+      <h1 className="relative space-y-1 md:space-y-2">
+        {/* Main Title Line 1 */}
+        <div
+          key={`main-${currentIdx}`}
+          className="text-black font-black leading-[0.9] tracking-tight animate-fade-in-out"
+          style={{
+            fontSize: 'clamp(2.5rem, 8vw, 10rem)',
+          }}
+        >
+          {currentItem.mainTitle}
         </div>
-      </div>
-
-      {/* Mobile Menu Panel */}
-      {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {['Home', 'Services', 'Insights', 'Contact'].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
+        
+        {/* Sub Title Line 2 */}
+        <div
+          key={`sub-${currentIdx}`}
+          className="text-black font-black leading-[0.9] tracking-tight animate-fade-in-out"
+          style={{
+            fontSize: 'clamp(2rem, 6vw, 8rem)',
+            animationDelay: '0.05s',
+          }}
+        >
+          {currentItem.subTitle}
         </div>
-      )}
-    </nav>
+      </h1>
+
+      {/* Tagline / Subtitle */}
+      <p
+        key={`tagline-${currentIdx}`}
+        className="text-gray-600 font-semibold leading-relaxed max-w-4xl mx-auto animate-fade-in-out px-4"
+        style={{
+          fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+          animationDelay: '0.1s',
+        }}
+      >
+        {currentItem.tagline}
+      </p>
+    </>
   );
 };
 
-// --- Hero Section - Microsoft AI Inspired ---
+
+// --- Hero Section - Microsoft AI Inspired (Modified) ---
 export const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen flex items-start justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 pt-32">
-      {/* Enhanced blue theme background */}
+    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50">
+      {/* Enhanced blue theme background (unchanged) */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-100/60 via-sky-100/60 to-cyan-100/60">
         <div className="absolute inset-0 opacity-70">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/60 to-blue-600/60 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '8s' }}></div>
@@ -78,7 +109,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Grid pattern overlay - Blue theme */}
+      {/* Grid pattern overlay - Blue theme (unchanged) */}
       <div className="absolute inset-0 opacity-[0.10]">
         <div 
           className="absolute inset-0" 
@@ -89,7 +120,7 @@ export const HeroSection = () => {
         ></div>
       </div>
 
-      {/* Animated particles - Microsoft AI style */}
+      {/* Animated particles, flowing lines, glowing dots, etc. (unchanged) */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating particles - More visible */}
         {[...Array(30)].map((_, i) => (
@@ -167,7 +198,7 @@ export const HeroSection = () => {
         <div className="absolute bottom-1/4 right-1/2 w-4 h-4 bg-cyan-500 rounded-full animate-glow-pulse shadow-lg shadow-cyan-500/50" style={{ animationDelay: '5s' }}></div>
       </div>
       
-      {/* Floating geometric shapes - Blue theme */}
+      {/* Floating geometric shapes (unchanged) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Animated hexagons */}
         <div className="absolute top-20 left-10 w-16 h-16 border-2 border-blue-400/30 rotate-45 animate-float" style={{ animationDuration: '8s' }}></div>
@@ -184,7 +215,7 @@ export const HeroSection = () => {
         <div className="absolute bottom-1/4 left-1/3 w-1 h-24 bg-gradient-to-b from-transparent via-cyan-400/40 to-transparent animate-float" style={{ animationDuration: '12s', animationDelay: '1s' }}></div>
       </div>
 
-      {/* Animated code-like elements */}
+      {/* Animated code-like elements (unchanged) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
         <div className="absolute top-1/4 left-10 text-blue-500 font-mono text-xs animate-float" style={{ animationDuration: '15s' }}>{'<div>'}</div>
         <div className="absolute top-1/3 right-20 text-cyan-500 font-mono text-xs animate-float" style={{ animationDuration: '12s', animationDelay: '2s' }}>{'{ }'}</div>
@@ -192,46 +223,15 @@ export const HeroSection = () => {
         <div className="absolute bottom-1/4 right-1/3 text-sky-500 font-mono text-xs animate-float" style={{ animationDuration: '14s', animationDelay: '3s' }}>{'( )'}</div>
       </div>
 
-      {/* Main content container - Added top padding to clear navbar */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-24 md:pt-40 md:pb-32">
+      {/* Main content container - **NEW CAROUSEL INTEGRATED HERE** */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
         {/* Content */}
-        <div className="text-center space-y-8 md:space-y-12 animate-fade-in">
-          {/* Small badge with glow */}
-          <div className="inline-block">
-            <div className="px-6 py-2 rounded-full bg-white/90 border-2 border-blue-200 backdrop-blur-sm shadow-lg animate-pulse-glow">
-              <span className="text-blue-600 text-sm font-bold tracking-wider uppercase">Marginz</span>
-            </div>
-          </div>
+        <div className="text-center space-y-6 md:space-y-8 animate-fade-in">
+          {/* *** Fading Carousel Text Component *** */}
+          <FadingCarouselText content={carouselContent} />
 
-          {/* Main headline - Black text, no glow */}
-          <h1 className="relative space-y-2 md:space-y-4">
-            <div 
-              className="text-black font-black leading-[0.9] tracking-tight animate-slide-up" 
-              style={{ 
-                fontSize: 'clamp(2.5rem, 10vw, 12rem)', 
-                animationDelay: '0.1s'
-              }}
-            >
-              The Architect
-            </div>
-            <div 
-              className="text-black font-black leading-[0.9] tracking-tight animate-slide-up" 
-              style={{ 
-                fontSize: 'clamp(2rem, 8vw, 10rem)', 
-                animationDelay: '0.2s'
-              }}
-            >
-              Agility & Technology
-            </div>
-          </h1>
-
-          {/* Subtitle - More visible */}
-          <p className="text-gray-600 font-semibold leading-relaxed max-w-4xl mx-auto animate-slide-up px-4" style={{ fontSize: 'clamp(1.125rem, 2.5vw, 2rem)', animationDelay: '0.3s' }}>
-            Engineering Enterprise Liberation
-          </p>
-
-          {/* CTA Buttons - Properly sized */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-7 md:pt-8 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+          {/* CTA Buttons - Properly sized (unchanged) */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 md:pt-6 animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <button className="group relative px-8 py-3 bg-white text-black font-bold rounded-full border-2 border-black hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-base sm:text-lg">
               <span className="relative z-10 text-black whitespace-nowrap">Start the Transformation</span>
             </button>
@@ -241,7 +241,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        {/* Floating elements - Blue theme */}
+        {/* Floating elements - Blue theme (unchanged) */}
         <div className="absolute bottom-20 left-10 w-20 h-20 rounded-full bg-gradient-to-br from-blue-500/25 to-cyan-500/25 blur-xl animate-float"></div>
         <div className="absolute top-40 right-20 w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500/25 to-blue-600/25 blur-xl animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }}></div>
         <div className="absolute bottom-40 right-40 w-24 h-24 rounded-full bg-gradient-to-br from-sky-500/25 to-cyan-500/25 blur-xl animate-float" style={{ animationDelay: '4s', animationDuration: '10s' }}></div>
@@ -253,5 +253,3 @@ export const HeroSection = () => {
     </section>
   );
 };
-
-  
